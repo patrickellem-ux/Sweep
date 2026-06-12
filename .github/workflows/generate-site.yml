@@ -1,0 +1,35 @@
+name: Generate Site
+
+on:
+  push:
+    paths:
+      - 'PythonApplication1/teams.csv'
+      - 'PythonApplication1/players.csv'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install pandas
+      
+      - name: Run generation script
+        working-directory: PythonApplication1
+        run: python PythonApplication1.py
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add PythonApplication1/site/
+          git commit -m "Auto-generate site from teams data" || echo "No changes to commit"
+          git push
