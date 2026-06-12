@@ -32,6 +32,8 @@ html = """
 <body>
 <h1>⚽ WORLD CUP 2026 SWEEPSTAKES HQ ⚽</h1>
 
+<marquee> WOW! </marquee>
+
 <table>
 <tr>
     <th>Rank</th>
