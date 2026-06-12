@@ -34,5 +34,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add site/
+          [ -d "PythonApplication1/site/" ] && git add PythonApplication1/site/ || echo "No site directory found"
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update World Cup site [auto]" && git push)
