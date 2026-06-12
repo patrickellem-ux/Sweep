@@ -39,7 +39,7 @@ html = """
     <th>Rank</th>
     <th>Player</th>
     <th>Teams</th>
-    <th>Total Goals</th>
+    <th>Total Points</th>
 </tr>
 """
 
