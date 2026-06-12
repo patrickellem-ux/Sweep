@@ -1,18 +1,20 @@
-name: Generate Site
+name: Generate World Cup Site
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'PythonApplication1/teams.csv'
       - 'PythonApplication1/players.csv'
-  workflow_dispatch:
+      - 'PythonApplication1/PythonApplication1.py'
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -22,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: pip install pandas
       
-      - name: Run generation script
+      - name: Run generator script
         working-directory: PythonApplication1
         run: python PythonApplication1.py
       
@@ -30,6 +32,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add PythonApplication1/site/
-          git commit -m "Auto-generate site from teams data" || echo "No changes to commit"
-          git push
+          git add site/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update World Cup site [auto]" && git push)
