@@ -4,9 +4,9 @@ arg,0,0
 aus,0,0
 aut,0,0
 bel,0,0
-bih,0,0
+bih,4,0
 bra,0,0
-can,0,0
+can,3,0
 cgo,0,0
 civ,0,0
 col,0,0
@@ -34,7 +34,7 @@ ned,0,0
 nor,0,0
 nzl,0,0
 pan,0,0
-par,0,0
+par,3,0
 por,0,0
 rsa,0,0
 sco,0,0
@@ -44,6 +44,6 @@ swe,0,0
 tun,0,0
 tur,0,0
 uru,0,0
-usa,0,0
+usa,8,0
 uzb,0,0
 qat,0,0
